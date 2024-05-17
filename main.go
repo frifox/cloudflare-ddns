@@ -1,34 +1,37 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
+	"encoding/base64"
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
 	"os"
 )
 
+var AppUser = os.Getenv("APP_USER")
+var AppPass = os.Getenv("APP_PASS")
+var AuthHeader = "Basic " + base64.StdEncoding.EncodeToString([]byte(AppUser+":"+AppPass))
+
 func main() {
-	log.Print("starting server...")
-	http.HandleFunc("/", handler)
-
-	// Determine port for HTTP service.
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-		log.Printf("defaulting to port %s", port)
-	}
-
-	// Start HTTP server.
-	log.Printf("listening on port %s", port)
-	if err := http.ListenAndServe(":"+port, nil); err != nil {
-		log.Fatal(err)
-	}
+	lambda.Start(handler)
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	name := os.Getenv("NAME")
-	if name == "" {
-		name = "World"
+func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	authHeader, ok := request.Headers["authorization"]
+	if !ok {
+		return events.APIGatewayProxyResponse{Body: "no auth", StatusCode: 400}, nil
 	}
-	fmt.Fprintf(w, "Hello %s!\n", name)
+	if authHeader != AuthHeader {
+		return events.APIGatewayProxyResponse{Body: "bad auth", StatusCode: 400}, nil
+	}
+
+	hostname := request.QueryStringParameters["hostname"]
+	if hostname == "" {
+		return events.APIGatewayProxyResponse{Body: "hostname empty", StatusCode: 400}, nil
+	}
+	ip := request.QueryStringParameters["ip"]
+	if ip == "" {
+		return events.APIGatewayProxyResponse{Body: "ip empty", StatusCode: 400}, nil
+	}
+
+	return cloudflare(hostname, ip)
 }
