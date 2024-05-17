@@ -1,5 +1,6 @@
 # UniFi DDNS for Cloudflare via AWS Lambda
-UniFi DDNS doesn't support Cloudflare in the UI. We will create an AWS lambda and make them work. With typical usage, free tier should be plenty. 
+UniFi DDNS doesn't support Cloudflare in the UI. This repo is a proxy to fwd UniFi DDNS updates to Cloudflare.\
+With typical usage, free tier should be plenty. 
 
 ## 1. Prepare Cloudflare
 1. Find your API key:
