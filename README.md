@@ -36,8 +36,8 @@ zip cloudflare-ddns.zip bootstrap
    - click `Upload from` > `.zip file` > `Upload`
    - find your `cloudflare-ddns.zip`
    - `Save`
-4. Under `Function overview` section:
-   - copy the `Function URL`, will be used in UniFi later
+4. Under `Configuration` tab:
+   - Function URL > copy the url, will be used in UniFi later
 
 ## 4. Config your lambda func via ENV
 1. Under `Configuration` tab > `Environment variables`:
