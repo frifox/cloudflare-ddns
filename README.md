@@ -50,6 +50,9 @@ zip cloudflare-ddns.zip bootstrap
      - `CF_KEY` = cloudflare global api key
      - `CF_ZONE_ID` = cloudflare domain's zone id
      - `CF_RECORD_ID` = cloudflare domain's A record id
+   - and optionally:
+     - `CF_RECORD_PROXIED` = use cloudflare proxy `true` / `false` (default `false`)
+     - `CF_RECORD_TTL` = record TTL in seconds, requires `CF_RECORD_PROXIED`=`false` (default `3600`)
 
 ## 5. Config Unifi
 1. Go to https://unifi.ui.com/ > Your console
