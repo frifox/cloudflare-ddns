@@ -33,15 +33,15 @@ zip cloudflare-ddns.zip bootstrap
      - set Auth Type `NONE`
    - `Create function`
 3. Under `Code` tab:
-   - click `Upload from` > `.zip file` > `Upload`
+   - `Upload from` > `.zip file` > `Upload`
    - find your `cloudflare-ddns.zip`
    - `Save`
 4. Under `Configuration` tab:
-   - Function URL > copy the url, will be used in UniFi later
+   - `Function URL` > copy the url, will be used in UniFi later
 
 ## 4. Config your lambda func via ENV
-1. Under `Configuration` tab > `Environment variables`:
-   - click `Edit` > `Add environment variable`
+1. Under `Configuration` tab
+   - `Environment variables` > `Edit` > `Add environment variable`
    - add Key/Values:
      - `APP_USER` = pick a username for your lambda app
      - `APP_PASS` = pick a password for your lambda app
