@@ -8,7 +8,7 @@ With typical usage, free tier should be plenty.
 2. Find domain zone id:
    - domain's Overview page, right sidebar, `Zone ID` value
 3. Find DNS record id:
-   - add/Edit an A record with a temporary ip, ie `home.mydomain.com`=`127.0.0.1`
+   - add/edit an A record with a temporary ip, ie `home.mydomain.com`=`127.0.0.1`
    - navigate cloudflare dashboard > Manage Account > Audit Log
    - expand most recent log, copy the `Resource ID` value
 
