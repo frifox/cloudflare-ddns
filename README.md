@@ -31,11 +31,11 @@ zip cloudflare-ddns.zip bootstrap
    - under `Advanced settings`:
      - check `Enable function URL`
      - set Auth Type `NONE`
-   - submit by clicking `Create function`
+   - `Create function`
 3. Under `Code` tab:
    - click `Upload from` > `.zip file` > `Upload`
-   - find `cloudflare-ddns.zip` from the step above
-   - click `Save`
+   - find your `cloudflare-ddns.zip`
+   - `Save`
 4. Under `Function overview` section:
    - copy the `Function URL`, will be used in UniFi later
 
@@ -60,7 +60,7 @@ zip cloudflare-ddns.zip bootstrap
    - Password = `APP_PASS` value
    - Server = `{your_aws_lambda_function_url.aws}/?hostname=%h&ip=%i`
      - IMPORTANT: remove the `https://` prefix from your aws lambda function url
-   - click `Save`
+   - `Save`
 
 ## 6. Force DDNS to update now
 1. Go to https://unifi.ui.com/ > Your console
