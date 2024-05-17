@@ -76,3 +76,4 @@ inadyn[2908558]: In-a-dyn version 2.9.1 -- Dynamic DNS update client.
 inadyn[2908558]: Update forced for alias home.mydomain.com, new IP# 123.123.123.123
 inadyn[2908558]: Updating cache for home.mydomain.com
 ```
+5. Login to cloudflare and verify dns record updated
